@@ -1,0 +1,243 @@
+/* Body Global */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    min-width: 350px;
+}
+
+/* Mobile First */
+
+/* Wrapper Class */
+.wrapper {
+    display: grid;
+    grid-template-rows: 2fr 1fr 7fr;
+    grid-row-gap: 0.5em;
+    width: 95%;
+    margin: 0.5em 2.5%;
+    overflow: hidden;
+}
+
+/* Header */
+.main-header {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+            'ulogo'
+            'title';
+    align-items: center;
+    justify-items: center;
+    border-bottom: 3px solid #7d97ad;
+}
+
+.main-header img {
+    grid-area: ulogo;
+    width: 100px;
+}
+
+.main-header .title {
+    grid-area: title;
+    color: #2d3c49;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.main-header .title h1 {
+    font-size: 2.5em;
+}
+
+.main-header .title h4 {
+    font-size: 1.3em;
+}
+
+/* Sidebar */
+
+.sidebar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.sidebar .colorbox {
+    display: grid;
+    justify-items: center;
+}
+
+.sidebar .colorbox .box {
+    width: 80px;
+    padding-top: 3rem;
+}
+
+.colorbox p {
+    color: #7d97ad;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.blue {
+    background: #02b3e4;
+}
+
+.dgray {
+    background: #2d3c49;
+}
+
+.lgray {
+    background: #7d97ad;
+}
+
+/* Showcase */
+.showcase img {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Featured Work */
+.featured-work {
+    text-align: center;
+}
+
+.featured-work > h2 {
+    color: #7d97ad;
+    font-size: 3em;
+    font-weight: normal;
+    padding: 10px;
+}
+
+.featured-work .boxes .box > p {
+    color: #7d97ad;
+    font-size: 1em;
+}
+
+.featured-work .boxes {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.featured-work .boxes .box img {
+    width: 100%;
+}
+
+.featured-work .boxes .box h2 {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+/* Media Queries */
+
+/* For Tablets */
+@media only screen and (min-width: 650px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+        grid-template-rows: 10em 1fr;
+        grid-template-areas: 
+            'header header'
+            'sidebar mainarea';
+        grid-gap: 0 0.5em;
+        margin: 0.5em 3%;
+    }
+
+    /* header */
+    header {
+        grid-area: header;
+        display: grid;
+        grid-template-columns: 2fr 7fr;
+    }
+
+    .main-header {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-rows: none;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas:
+            'ulogo . title title title title';
+    }
+
+    .main-header img {
+        justify-self: start;
+    }
+
+    .main-header .title {
+        justify-self: end;
+    }
+
+    .main-header .title {
+        text-align: right;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        grid-area: sidebar;
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: repeat(3, 140px); 
+        justify-items: end;
+    }
+
+    .sidebar .colorbox {
+        display: grid;
+        justify-items: end;
+        margin-right: 20%;
+    }
+
+    .sidebar .colorbox .box {
+        width: 80px;
+        padding-top: 80px;
+    }
+
+    .sidebar .colorbox p {
+        font-size: 1.5rem;
+    }
+
+    /* Main */
+    main {
+        grid-area: mainarea;
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-row-gap: 1em;
+    }
+
+    /* Showcase */
+    .showcase {
+        margin: 1rem 0;
+    }
+}
+
+/* Desktop's */
+@media only screen and (min-width: 960px) {
+    /* Header */
+    header {
+        grid-area: header;
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+    }
+
+    /* MainArea */
+    main {
+        grid-area: mainarea;
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-row-gap: 1em;
+    }
+
+    /* Featured */
+    .featured-work {
+        text-align: left;
+    }
+
+    .featured-work .boxes {
+        display: grid;
+        grid-template-rows: none;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-column-gap: 10px;
+    }
+
+    .featured-work .box {
+        text-align: center;
+    }
+}
